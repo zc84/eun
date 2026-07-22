@@ -1,0 +1,48 @@
+:root {
+  --font-family-base: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-family-heading: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+  --color-bg-page: #f4f8fd;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #eaf2fb;
+  --color-bg-brand-soft: #edf5ff;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #3d4a5d;
+  --color-text-muted: #5b6575;
+
+  --color-border-default: #cfd9e6;
+  --color-border-strong: #9eb4cf;
+
+  --color-brand-primary: #006fb4;
+  --color-brand-primary-hover: #005a93;
+  --color-brand-accent: #ffd617;
+
+  --color-success: #177245;
+  --color-warning: #9c6a00;
+
+  --focus-ring-color: #0b63ce;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+
+  --shadow-sm: 0 1px 2px rgba(15, 35, 60, 0.08);
+  --shadow-md: 0 4px 14px rgba(15, 35, 60, 0.12);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+
+  --breakpoint-sm: 36rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
