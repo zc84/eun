@@ -3,9 +3,9 @@ import type { UserProfile } from '../types/user'
 export const currentUser: UserProfile = {
   id: 'user-1',
   displayName: 'Sofia Marin',
-  organisation: 'EU Code Week Community Network',
+  organisation: 'EU Code Week National Hub — Belgium',
   countryCode: 'BE',
-  roleLabel: 'Educator and organiser',
+  roleLabel: 'National Hub coordinator and educator',
   earnedBadgeIds: ['first-join'],
   certificateIds: ['cert-2025-1'],
   joinedActivityIds: ['act-3'],

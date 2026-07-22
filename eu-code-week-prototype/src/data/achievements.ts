@@ -52,4 +52,10 @@ export const certificates: Certificate[] = [
     issueDate: '2025-10-21',
     fileUrl: '/mock-certificates/mock-certificate-2025.pdf',
   },
+  {
+    id: 'cert-trainers-2025',
+    title: 'Train the Trainers — Inclusive Coding Practice (Concept Sample)',
+    issueDate: '2025-05-14',
+    fileUrl: '/mock-certificates/mock-certificate-2025.pdf',
+  },
 ]

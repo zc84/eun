@@ -45,6 +45,8 @@ interface AppStore extends AppState {
   resetState: () => void
   getActivities: (filters: ActivityFilters) => Promise<Activity[]>
   getActivityById: (id: string) => Promise<Activity | null>
+  registerForActivity: (id: string) => Promise<void>
+  getCurrentUser: () => Promise<typeof currentUser>
 }
 
 const AppStoreContext = createContext<AppStore | null>(null)
@@ -287,6 +289,11 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         const activity = state.activities.find((item) => item.id === id) ?? null
         return withDelay(activity)
       },
+      registerForActivity: async (id) => {
+        dispatch({ type: 'JOIN_ACTIVITY', payload: id })
+        return withDelay(undefined)
+      },
+      getCurrentUser: async () => withDelay(currentUser),
     }),
     [state],
   )
