@@ -11,13 +11,13 @@
 - развёрнут как Static Site на Render;
 - доступен по публичной ссылке;
 - пригоден для демонстрации клиенту в течение 2–3 минут;
-- визуально и функционально похож на high-fidelity product prototype, а не на набор статичных макетов;
+- визуально и функционально похож на high-fidelity product platform, а не на набор статичных макетов;
 - явно помечен как концепт, работающий на mock data.
 
 Рабочее название репозитория:
 
 ```text
-eu-code-week-prototype
+eu-code-week-platform
 ```
 
 ---
@@ -94,7 +94,7 @@ eu-code-week-prototype
 На всех основных экранах должна быть ненавязчивая, но видимая маркировка:
 
 ```text
-Interactive concept prototype — demonstration data only
+Interactive concept platform — presentation data only
 ```
 
 Не использовать формулировки, создающие впечатление, что это новая production-версия Code Week.
@@ -135,7 +135,7 @@ Interactive concept prototype — demonstration data only
 - проще управлять доступностью;
 - mock-пины можно размещать по координатам из локальных данных.
 
-При необходимости можно добавить отдельный detail map preview, но он не должен быть критичен для основного demo flow.
+При необходимости можно добавить отдельный detail map preview, но он не должен быть критичен для основного preview flow.
 
 ### 4.3. Styling strategy
 
@@ -180,7 +180,7 @@ Interactive concept prototype — demonstration data only
 ## 5. Предлагаемая структура приложения
 
 ```text
-eu-code-week-prototype/
+eu-code-week-platform/
 ├── public/
 │   ├── favicon.svg
 │   ├── images/
@@ -217,7 +217,7 @@ eu-code-week-prototype/
 │   │   ├── activity-registration/
 │   │   ├── activity-creation/
 │   │   ├── profile/
-│   │   └── demo-controls/
+│   │   └── preview-controls/
 │   ├── hooks/
 │   ├── pages/
 │   │   ├── HomePage.tsx
@@ -247,7 +247,7 @@ eu-code-week-prototype/
 │   └── vite-env.d.ts
 ├── tests/
 │   └── e2e/
-│       └── demo-flow.spec.ts
+│       └── preview-flow.spec.ts
 ├── .editorconfig
 ├── .gitignore
 ├── eslint.config.js
@@ -277,7 +277,7 @@ eu-code-week-prototype/
 /*                         404
 ```
 
-В header можно использовать role/demo switch:
+В header можно использовать role/preview switch:
 
 ```text
 Explore activities | Organiser mode | My profile
@@ -388,7 +388,7 @@ export interface UserProfile {
 В `localStorage` сохранять только:
 
 - созданные в демо активности;
-- выбранную demo role;
+- выбранную preview role;
 - mock registrations;
 - настройку high contrast mode;
 - закрытие onboarding/notice.
@@ -396,7 +396,7 @@ export interface UserProfile {
 Добавить кнопку:
 
 ```text
-Reset demo data
+Reset preview data
 ```
 
 Она должна очищать созданные пользователем mock-данные и восстанавливать исходное состояние.
@@ -427,7 +427,7 @@ getCurrentUser(): Promise<UserProfile>
 
 ```text
 Header
-Page title + prototype notice
+Page title + platform notice
 Search bar
 Filter summary / result count
 ------------------------------------------------
@@ -621,7 +621,7 @@ Mock geocoding:
 
 1. Создать activity со статусом `pending`.
 2. Показать экран `Submitted for moderation`.
-3. Через demo control позволить выполнить `Approve activity`.
+3. Через preview control позволить выполнить `Approve activity`.
 4. После approve сменить статус на `published`.
 5. Показать ссылку `View on activity map`.
 6. При переходе карта должна центрироваться или визуально выделять новую активность.
@@ -705,9 +705,9 @@ Illustrative achievement model — subject to validation with the European Commi
 - альтернативный список для данных карты;
 - корректные accessible names для map pins и icon buttons.
 
-### 14.2. Demo accessibility controls
+### 14.2. Preview accessibility controls
 
-Добавить в header или demo toolbar:
+Добавить в header или preview toolbar:
 
 - `High contrast` toggle;
 - `Reduce motion` toggle или respect system setting;
@@ -755,7 +755,7 @@ Breakpoints можно реализовать локальными CSS variables
 - 1440 × 900;
 - 1920 × 1080.
 
-На 1366 × 768 основной demo flow должен помещаться без ощущения перегруженности.
+На 1366 × 768 основной preview flow должен помещаться без ощущения перегруженности.
 
 ---
 
@@ -780,7 +780,7 @@ interface AppState {
   joinActivity(id): void;
   createActivity(activity): void;
   approveActivity(id): void;
-  resetDemo(): void;
+  resetPreview(): void;
 }
 ```
 
@@ -788,9 +788,9 @@ Derived data, например filtered activities, не хранить отде
 
 ---
 
-## 17. Demo controls
+## 17. Preview controls
 
-Добавить компактный `Demo controls` popover, доступный только как часть прототипа.
+Добавить компактный `Preview controls` popover, доступный только как часть прототипа.
 
 Функции:
 
@@ -798,7 +798,7 @@ Derived data, например filtered activities, не хранить отде
 - reset data;
 - approve latest pending activity;
 - turn high contrast on/off;
-- open demo script;
+- open preview script;
 - jump to key screen.
 
 Этот блок ускорит проведение звонка и позволит восстановить состояние после неудачного клика.
@@ -825,13 +825,13 @@ Derived data, например filtered activities, не хранить отде
 
 ### Error
 
-Добавить dev/demo query parameter:
+Добавить dev/preview query parameter:
 
 ```text
 ?simulateError=activities
 ```
 
-Он может показывать один контролируемый error state. Это необязательно для основного demo, но полезно для демонстрации зрелости UX.
+Он может показывать один контролируемый error state. Это необязательно для основного preview, но полезно для демонстрации зрелости UX.
 
 ---
 
@@ -842,7 +842,7 @@ Derived data, например filtered activities, не хранить отде
 Создать локальную функцию:
 
 ```ts
-trackDemoEvent(name, payload)
+trackPreviewEvent(name, payload)
 ```
 
 В development она пишет события в console.
@@ -866,7 +866,8 @@ trackDemoEvent(name, payload)
 
 ### Progress update (implemented)
 
-- [x] Initial prototype feature completed: project bootstrap + app shell + Home discovery concept screen in English (header, prototype notice, search/filter/map/list preview, placeholder routes, build passes).
+- [x] Initial platform feature completed: project bootstrap + app shell + Home discovery concept screen in English (header, platform notice, search/filter/map/list preview, placeholder routes, build passes).
+- [x] Phase 2 foundation completed: typed domain models, mock datasets for activities/users/filters/achievements, app state management with persistence, selectors, and provider wiring.
 
 ## Phase 0 — repository bootstrap
 
@@ -900,7 +901,7 @@ trackDemoEvent(name, payload)
 1. Реализовать tokens.
 2. Реализовать typography.
 3. Реализовать header/footer.
-4. Реализовать prototype notice.
+4. Реализовать platform notice.
 5. Реализовать базовые buttons, fields, cards, tags, alerts.
 6. Реализовать focus styles.
 7. Реализовать responsive container/grid.
@@ -927,7 +928,7 @@ trackDemoEvent(name, payload)
 5. Реализовать repository/service layer.
 6. Реализовать store.
 7. Реализовать localStorage persistence.
-8. Реализовать reset demo.
+8. Реализовать reset preview.
 
 ### Acceptance criteria
 
@@ -995,7 +996,7 @@ trackDemoEvent(name, payload)
 5. Добавить map preview.
 6. Добавить review step.
 7. Добавить pending submission result.
-8. Добавить demo approval.
+8. Добавить preview approval.
 9. Добавить переход к созданной активности на карте.
 
 ### Acceptance criteria
@@ -1022,7 +1023,7 @@ trackDemoEvent(name, payload)
 
 ### Acceptance criteria
 
-- профиль отражает действия пользователя в текущем demo state;
+- профиль отражает действия пользователя в текущем preview state;
 - earned и locked badges визуально различимы не только цветом;
 - certificate mock открывается или скачивается как статичный пример;
 - вкладки доступны с клавиатуры.
@@ -1045,7 +1046,7 @@ trackDemoEvent(name, payload)
 ### Acceptance criteria
 
 - нет критических axe violations на основных экранах;
-- demo flow полностью проходим клавиатурой;
+- preview flow полностью проходим клавиатурой;
 - 200% zoom не ломает основные действия;
 - mobile layout не имеет horizontal scroll;
 - анимации отключаются при `prefers-reduced-motion`.
@@ -1060,12 +1061,12 @@ trackDemoEvent(name, payload)
 2. Component test для filters.
 3. Component test для join modal.
 4. Component test для validation errors.
-5. Playwright demo flow.
+5. Playwright preview flow.
 6. Production build.
 7. Render deployment.
 8. Smoke test deployed URL.
 9. Проверить direct links.
-10. Подготовить demo data reset перед звонком.
+10. Подготовить preview data reset перед звонком.
 
 ### Acceptance criteria
 
@@ -1074,7 +1075,7 @@ trackDemoEvent(name, payload)
 - deployed URL открывается;
 - прямой переход на `/activities/:id` работает;
 - refresh на nested route работает;
-- demo flow проходит на deployed environment.
+- preview flow проходит на deployed environment.
 
 ---
 
@@ -1102,7 +1103,7 @@ Action: Rewrite
 ```yaml
 services:
   - type: web
-    name: eu-code-week-prototype
+    name: eu-code-week-platform
     runtime: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
@@ -1157,7 +1158,7 @@ Codex должен соблюдать следующие правила:
 14. Сохранять TypeScript strict mode.
 15. Переиспользовать компоненты, но не создавать абстракции до появления повторения.
 16. После каждой фазы запускать lint, tests и build.
-17. Не переходить к optional mobile/PWA scope, пока основной demo flow не завершён.
+17. Не переходить к optional mobile/PWA scope, пока основной preview flow не завершён.
 18. Все видимые тексты интерфейса писать на английском.
 19. README и code comments писать на английском.
 20. Implementation plan и внутренние заметки можно вести на русском.
@@ -1169,7 +1170,7 @@ Codex должен соблюдать следующие правила:
 ### Prompt 1 — bootstrap
 
 ```text
-Implement Phase 0 from EUN_CodeWeek_React_prototype_implementation_plan.md.
+Implement Phase 0 from EUN_CodeWeek_React_platform_implementation_plan.md.
 Create a standalone React + TypeScript + Vite application. Do not add a backend,
 SSR, serverless functions, external APIs, authentication, or a database.
 After implementation, run lint and production build and fix all issues.
@@ -1189,7 +1190,7 @@ Run lint, tests, and build after the changes.
 ```text
 Implement Phase 2. Add typed mock domain models, realistic European Code Week
 activity data, a repository abstraction, state management, localStorage persistence,
-and a reset-demo action. Keep all data local and frontend-only.
+and a reset-preview action. Keep all data local and frontend-only.
 ```
 
 ### Prompt 4 — discovery experience
@@ -1213,7 +1214,7 @@ frontend-only architecture.
 ```text
 Implement Phase 5. Add the accessible four-step organiser activity creation flow,
 Zod validation, local mock address suggestions, map preview, pending moderation,
-demo approval, and publication into the existing activity dataset.
+preview approval, and publication into the existing activity dataset.
 ```
 
 ### Prompt 7 — profile
@@ -1234,7 +1235,7 @@ Verify that React Router direct links work through an index.html rewrite.
 
 ---
 
-## 25. Demo flow acceptance scenario
+## 25. Preview flow acceptance scenario
 
 Финальный прототип считается готовым, если следующий сценарий проходит без перезагрузки и ошибок:
 
@@ -1249,13 +1250,13 @@ Verify that React Router direct links work through an index.html rewrite.
 9. Переключиться в Organiser mode.
 10. Создать новую onsite activity через четыре шага.
 11. Отправить её на mock moderation.
-12. Выполнить demo approval.
+12. Выполнить preview approval.
 13. Вернуться на карту.
 14. Увидеть новую activity как опубликованную.
 15. Включить high contrast mode.
 16. Пройти основные controls клавишей Tab.
-17. Обновить страницу и убедиться, что demo state сохранился.
-18. Нажать `Reset demo data` и вернуть исходное состояние.
+17. Обновить страницу и убедиться, что preview state сохранился.
+18. Нажать `Reset preview data` и вернуть исходное состояние.
 
 ---
 
@@ -1273,7 +1274,7 @@ Verify that React Router direct links work through an index.html rewrite.
 - organiser creation flow работает;
 - mock moderation и publication работают;
 - profile отражает пользовательские действия;
-- accessibility demo работает;
+- accessibility preview работает;
 - нет критических ошибок в консоли;
 - нет критических accessibility violations;
 - интерфейс выглядит как целостный продукт;
@@ -1306,9 +1307,9 @@ Verify that React Router direct links work through an index.html rewrite.
 2. Profile.
 3. Badges.
 4. Certificates.
-5. Demo controls.
+5. Preview controls.
 6. High contrast mode.
-7. Playwright demo test.
+7. Playwright preview test.
 
 ### P2 — только после завершения P0/P1
 

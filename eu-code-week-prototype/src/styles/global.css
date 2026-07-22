@@ -28,15 +28,6 @@ a:hover {
   margin-inline: auto;
 }
 
-.prototype-notice {
-  background: var(--color-bg-brand-soft);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-sm);
-  padding: var(--space-3) var(--space-4);
-  font-size: 0.9rem;
-}
-
 .eu-top-strip {
   background: #0c2f57;
   color: #e7eef8;

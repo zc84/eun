@@ -11,21 +11,18 @@ export function HomePage() {
             Explore upcoming activities, compare opportunities by country and topic, and preview
             the future user experience for participants and organisers.
           </p>
-          <p className="prototype-notice">
-            Interactive concept prototype — demonstration data only
-          </p>
           <div className="hero-actions">
             <button type="button" className="primary-button">
               Explore activities
             </button>
             <button type="button" className="ghost-button">
-              Open demo controls
+              Open controls
             </button>
           </div>
         </div>
 
-        <aside className="home-hero__visual" aria-label="Prototype highlights">
-          <h2>What this concept demonstrates</h2>
+        <aside className="home-hero__visual" aria-label="Platform highlights">
+          <h2>What this platform offers</h2>
           <ul>
             <li>
               <strong>Live search & filters</strong>
@@ -122,7 +119,7 @@ export function HomePage() {
                 <p>
                   Hands-on workshop where students build and program mini robots in mixed teams.
                 </p>
-                <Link to="/activities/demo-1" className="text-link-cta">
+                <Link to="/activities/act-1" className="text-link-cta">
                   View activity
                 </Link>
               </div>
@@ -137,7 +134,7 @@ export function HomePage() {
                   Interactive lesson set for teachers and students focused on safe and creative use
                   of digital technologies.
                 </p>
-                <Link to="/activities/demo-2" className="text-link-cta">
+                <Link to="/activities/act-2" className="text-link-cta">
                   View activity
                 </Link>
               </div>

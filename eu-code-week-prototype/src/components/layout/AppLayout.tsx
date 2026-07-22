@@ -14,23 +14,23 @@ export function AppLayout() {
         Skip to main content
       </a>
 
-      <div className="eu-top-strip" role="note" aria-label="Prototype information">
+      <div className="eu-top-strip" role="note" aria-label="Platform information">
         <div className="container eu-top-strip__inner">
-          <span>Interactive concept prototype for demonstration purposes</span>
-          <span className="eu-top-strip__tag">Prototype</span>
+          <span>EU Code Week activity platform</span>
+          <span className="eu-top-strip__tag">Code Week</span>
         </div>
       </div>
 
       <header className="site-header">
         <div className="container site-header__inner">
-          <Link className="brand" to={appRoutes.home} aria-label="EU Code Week prototype home">
+          <Link className="brand" to={appRoutes.home} aria-label="EU Code Week home">
             <img
               src="/images/codeweek-logo-icon.svg"
               alt="EU Code Week"
               className="brand__logo"
             />
             <div className="brand__text">
-              <span>Interactive Concept Prototype</span>
+              <span>European Schoolnet</span>
             </div>
           </Link>
 
@@ -61,7 +61,7 @@ export function AppLayout() {
 
       <footer className="site-footer">
         <div className="container site-footer__inner">
-          <p>Interactive concept prototype — demonstration data only.</p>
+          <p>EU Code Week activities across Europe.</p>
           <img src="/images/codeweek-footer-logo.svg" alt="EU Code Week" />
         </div>
       </footer>
